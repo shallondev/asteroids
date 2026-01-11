@@ -2,3 +2,4 @@
 .python-version
 uv.lock
 game_state.jsonl
+__pycache__
