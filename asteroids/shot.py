@@ -7,7 +7,7 @@ class Shot(CircleShape):
         super().__init__(x, y, radius)
 
     def draw(self, screen):
-        pg.draw.circle(screen, "white", self.position, self.radius, LINE_WIDTH)
+        pg.draw.circle(screen, "green", self.position, self.radius, LINE_WIDTH)
 
     def update(self, dt):
         self.position += self.velocity * dt
