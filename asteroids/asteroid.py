@@ -12,6 +12,8 @@ class Asteroid(CircleShape):
         pg.draw.circle(screen, "white", self.position, self.radius, LINE_WIDTH)
 
     def split(self):
+        split_sound = pg.mixer.Sound("split.wav")
+        split_sound.play()
         self.kill()
         if self.radius <= ASTEROID_MIN_RADIUS:
             return 

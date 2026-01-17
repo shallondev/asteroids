@@ -11,6 +11,10 @@ def main():
     pg.init()
     screen = pg.display.set_mode((constants.SCREEN_WIDTH, constants.SCREEN_HEIGHT))
     
+    # Background music
+    pg.mixer.music.load("background.wav")
+    pg.mixer.music.play(-1)
+
     clock = pg.time.Clock()
     dt = 0
     updatable = pg.sprite.Group()

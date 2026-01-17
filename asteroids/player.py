@@ -18,7 +18,7 @@ class Player(CircleShape):
         return [a, b, c]
     
     def draw(self, screen):
-        pg.draw.polygon(screen, "blue", self.triangle(), LINE_WIDTH)
+        pg.draw.polygon(screen, "green", self.triangle(), LINE_WIDTH)
 
     def rotate(self, dt):
         self.rotation += PLAYER_TURN_SPEED * dt
@@ -31,6 +31,8 @@ class Player(CircleShape):
 
     def shoot(self):
         if self.shot_cooldown <= 0:
+            shoot_sound = pg.mixer.Sound("shoot.wav")
+            shoot_sound.play()
             shot = Shot(self.position.x, self.position.y, SHOT_RADIUS)
             shot.velocity = pg.Vector2(0, 1).rotate(self.rotation) * PLAYER_SHOOT_SPEED
             self.shot_cooldown = PLAYER_SHOOT_COOLDOWN_SECONDS
